@@ -59,9 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Publication.cs" />
-    <Compile Include="Researcher.cs" />
-    <Compile Include="ResearcherController.cs" />
+    <Compile Include="Model\Publication.cs" />
+    <Compile Include="Model\Researcher.cs" />
+    <Compile Include="Control\ResearcherController.cs" />
     <Compile Include="View\CumulativeCountView.xaml.cs">
       <DependentUpon>CumulativeCountView.xaml</DependentUpon>
     </Compile>
@@ -92,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\CumulativeCount.cs" />
-    <Compile Include="Position.cs" />
+    <Compile Include="Model\Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -120,7 +120,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Control\" />
     <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
