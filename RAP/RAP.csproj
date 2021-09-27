@@ -59,6 +59,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Publication.cs" />
+    <Compile Include="Researcher.cs" />
+    <Compile Include="ResearcherController.cs" />
+    <Compile Include="View\CumulativeCountView.xaml.cs">
+      <DependentUpon>CumulativeCountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SupervisionListView.xaml.cs">
+      <DependentUpon>SupervisionListView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,12 +76,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Database\ERDAdapter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\CumulativeCountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SupervisionListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\CumulativeCount.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -90,6 +110,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="font_style\Roboto-Regular.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,6 +118,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Control\" />
+    <Folder Include="images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="font_style\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icons-close-btn-end.png" />
+    <Resource Include="icons\icons-close-btn-start.png" />
+    <Resource Include="icons\icons-home.png" />
+    <Resource Include="icons\icons-publication.png" />
+    <Resource Include="icons\icons-report.png" />
+    <Resource Include="icons\icons-researcher-detail.png" />
+    <Resource Include="icons\icons-researcher-list.png" />
+    <Resource Include="icons\icons-setting.png" />
+    <Resource Include="icons\icons-user.png" />
+    <Resource Include="icons\icons_menu.png" />
+    <Resource Include="icons\icons_mouse_over.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

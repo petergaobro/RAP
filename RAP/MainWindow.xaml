@@ -1,12 +1,604 @@
-﻿<Window x:Class="RAP.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RAP"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:local="clr-namespace:RAP" x:Class="RAP.MainWindow"
+        Title="MainWindow" Height="900" Width="800">
+
+    <Window.Resources>
+        <!--toggle button style template-->
+        <ImageBrush x:Key="app_mouse_over"
+                    ImageSource="icons/icons_mouse_over.png">
+
+        </ImageBrush>
+
+        <!--text font style-->
+        <!--<Style x:Key="font_style" TargetType="TextBlock">
+            <Setter Property="FontFamily"
+                    Value="font_style/Roboto-Regular.ttf #Roboto">
+            </Setter>
+            <Setter Property="VerticalAlignment"
+                    Value="Center">
+            </Setter>
+            <Setter Property="HorizontalAlignment"
+                    Value="Left">
+            </Setter>
+            <Setter Property="FontSize"
+                    Value="20">
+            </Setter>
+        </Style>-->
+
+
+        <!--tool tip style-->
+        <Style TargetType="ToolTip"
+               x:Key="tool_tip_style">
+            <Setter Property="Background"
+                    Value="Navy">
+            </Setter>
+            <Setter Property="Height"
+                    Value="35">
+            </Setter>
+            <Setter Property="Width"
+                    Value="150">
+            </Setter>
+            <Setter Property="Margin"
+                    Value="5,0,0,0">
+            </Setter>
+            <Setter Property="Placement"
+                    Value="Right">
+            </Setter>
+            <Setter Property="BorderBrush"
+                    Value="Transparent">
+            </Setter>
+            <Setter Property="Foreground"
+                    Value="White">
+            </Setter>
+            <Setter Property="FontFamily"
+                    Value="font_style/Roboto-Regular.ttf #Roboto">
+            </Setter>
+            <Setter Property="FontSize"
+                    Value="15">
+            </Setter>
+            <Setter Property="PlacementRectangle"
+                    Value="60,0,0,0">
+            </Setter>
+            <Setter Property="HorizontalOffset"
+                    Value="15">
+            </Setter>
+            <!--<Setter Property="VerticalOffset"
+                    Value="0">
+            </Setter>-->
+            <Setter Property="HasDropShadow"
+                    Value="True">
+            </Setter>
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center">
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="app_style" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="border"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource app_mouse_over}">
+                                </Setter>
+
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource app_mouse_over}">
+                                </Setter>
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="True">
+
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource app_mouse_over}">
+                                </Setter>
+
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource app_mouse_over}">
+                                </Setter>
+                            </Trigger>
+
+
+
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="130*"/>
+            <ColumnDefinition Width="270*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="nav_side"
+                      HorizontalAlignment="Left"
+                      Width="65"
+                      Background="Navy"
+                      Grid.Column="0">
+            <StackPanel x:Name="stack_panel">
+
+                <!--toggle menu-->
+                <Grid Height="100">
+
+                    <!--menu title text-->
+                    <!--<TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="73,-20,0,0"
+                                       Text="M E N U"
+                                       Foreground="White"
+                                       FontSize="22"
+                                       Background="Transparent"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                   
+                                       >
+                            
+                            
+                                -->
+                    <!--shadow effect-->
+                    <!--
+                        <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="10"
+                                                      ShadowDepth="1"
+                                                      Direction="-90"
+                                                      Color="White">
+
+                            </DropShadowEffect>
+                        </TextBlock.Effect>
+                    </TextBlock>-->
+
+                    <!--toggle button-->
+                    <ToggleButton x:Name="toggle_btn"
+                                          Grid.Column="0"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Left"
+                                          Margin="18,-20,0,0"
+                                          Height="30"
+                                          Width="30"
+                                          BorderThickness="0"
+                                          >
+                        <!--Style="{StaticResource tb_style}">-->
+
+                        <!--toggle button background color-->
+                        <ToggleButton.Background>
+                            <ImageBrush ImageSource="icons/icons_menu.png">
+                            </ImageBrush>
+                        </ToggleButton.Background>
+
+                        <!--toggle button - check and uncheck events-->
+                        <ToggleButton.Triggers>
+                            <!--uncheck-->
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="hide_nav_side">
+
+                                        <DoubleAnimation
+                                                    Storyboard.TargetName="nav_pnl"
+                                                    Storyboard.TargetProperty="width"
+                                                    BeginTime="0:0:0"
+                                                    From="230" To=" 65"
+                                                    Duration="0:0:0.2">
+
+                                        </DoubleAnimation>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </EventTrigger>
+
+                            <!--check-->
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="show_nav_side">
+                                        <DoubleAnimation 
+                                                    Storyboard.TargetName="nav_pnl"
+                                                    Storyboard.TargetProperty="width"
+                                                    BeginTime="0:0:0"
+                                                    From="65" To=" 230"
+                                                    Duration="0:0:0.3">
+
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+                        </ToggleButton.Triggers>
+
+
+                    </ToggleButton>
+
+                </Grid>
+
+
+                <!--list view with menu-->
+                <ListView x:Name="side_bar_view"
+                                  Background="Transparent"
+                                  BorderBrush="Transparent"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                    <!--home-->
+
+                    <ListViewItem HorizontalAlignment="Center"
+                                        Margin="0,0,0,15">
+                        <Button Background="Navy"
+                                        BorderThickness="0"
+                                    
+                                            >
+                            <StackPanel Orientation="Horizontal"
+                                            Width="230">
+
+
+                                <Image Source="icons/icons-home.png"
+                                            Stretch="None"
+                                            Margin="10,0,0,0">
+                                </Image>
+
+                                <TextBlock Text="Home"
+                                            Margin="25,0,0,0"
+                                            >
+                                </TextBlock>
+
+                            </StackPanel>
+                        </Button>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tool_tip_home"
+                                            Content="Home"
+                                            Style="{StaticResource tool_tip_style}"
+                                            >
+                            </ToolTip>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+
+                    <!--researcher list-->
+                    <ListViewItem HorizontalAlignment="Center"
+                                          Margin="0,0,0,15">
+
+                        <Button Background="Navy"
+                                        BorderThickness="0"
+                              
+                                        >
+                            <StackPanel Orientation="Horizontal"
+                                            Width="230">
+                                <Image Source="icons/icons-researcher-list.png"
+                                           Stretch="None"
+                                           Margin="10,0,0,0">
+                                </Image>
+                                <TextBlock Text="Researcher List"
+                                           Margin="25,0,0,0"
+                                           >
+                                </TextBlock>
+                            </StackPanel>
+                        </Button>
+
+
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tool_tip_researcher_list"
+                                             Content="Researcher List"
+                                             Style="{StaticResource tool_tip_style}"
+                                             >
+                            </ToolTip>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+                    <!--researcher detail-->
+                    <ListViewItem HorizontalAlignment="Center"
+                                          Margin="0,0,0,15">
+                        <Button Background="Navy"
+                                        BorderThickness="0"
+                                        >
+                            <StackPanel Orientation="Horizontal"
+                                                Width="230">
+                                <Image Source="icons/icons-researcher-detail.png"
+                                               Stretch="None"
+                                               Margin="10,0,0,0">
+                                </Image>
+                                <TextBlock Text="Researcher Detail"
+                                               Margin="25,0,0,0"
+                                               >
+                                </TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tool_tip_researcher_detail"
+                                             Content="Researcher Detail"
+                                             Style="{StaticResource tool_tip_style}"
+                                             >
+                            </ToolTip>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+                    <!--publication-->
+                    <ListViewItem HorizontalAlignment="Center"
+                                          Margin="0,0,0,15">
+                        <Button Background="Navy"
+                                        BorderThickness="0"
+                                        >
+                            <StackPanel Orientation="Horizontal"
+                                                Width="230">
+                                <Image Source="icons/icons-publication.png"
+                                               Stretch="None"
+                                               Margin="10,0,0,0">
+                                </Image>
+                                <TextBlock Text="Publication"
+                                               Margin="25,0,0,0"
+                                               >
+                                </TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tool_tip_publication"
+                                             Content="Publication"
+                                             Style="{StaticResource tool_tip_style}"
+                                             >
+                            </ToolTip>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+                    <!--report-->
+                    <ListViewItem HorizontalAlignment="Center"
+                                          Margin="0,0,0,15">
+                        <Button Background="Navy"
+                                        BorderThickness="0"
+                                        >
+                            <StackPanel Orientation="Horizontal"
+                                                Width="230">
+                                <Image Source="icons/icons-report.png"
+                                               Stretch="None"
+                                               Margin="10,0,0,0">
+                                </Image>
+                                <TextBlock Text="Report"
+                                               Margin="25,0,0,0"
+                                               >
+                                </TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tool_tip_report"
+                                             Content="Report"
+                                             Style="{StaticResource tool_tip_style}"
+                                             >
+                            </ToolTip>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                    <!--setting-->
+                    <ListViewItem HorizontalAlignment="Center"
+                                          Margin="0,0,0,15">
+                        <Button Background="Navy"
+                                        BorderThickness="0">
+                            <StackPanel Orientation="Horizontal"
+                                                Width="230">
+                                <Image Source="icons/icons-setting.png"
+                                               Stretch="None"
+                                               Margin="10,0,0,0">
+                                </Image>
+                                <TextBlock Text="Setting"
+                                               Margin="25,0,0,0"
+                                               >
+                                </TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tool_tip_setting"
+                                             Content="Setting"
+                                             Style="{StaticResource tool_tip_style}"
+                                             >
+                            </ToolTip>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+
+        <TextBox Grid.Column="1" Text="{Binding EmployeesFilter, UpdateSourceTrigger=PropertyChanged}" />
+
+
+
+        <!--<Button x:Name="sampleButton" Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="167,19,0,0" VerticalAlignment="Top" Width="75" Click="sampleButton_Click" Height="22"/>
+        <local:ExampleUserControl Grid.Column="3" HorizontalAlignment="Left" Margin="52,170,0,0" VerticalAlignment="Top" Width="190" Height="49"/>
+        <Button x:Name="btnDeleteOne" Content="Delete One" Grid.Column="3" HorizontalAlignment="Left" Margin="119,71,0,0" VerticalAlignment="Top" Width="75" Click="btnDeleteOne_Click" Height="20" />-->
+        <!--<TextBox Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="5,19,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="143"/>-->
+
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <!--Search-->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Search:"  FontSize="13"></Label>
+                <TextBox x:Name="FilterTextBox" Width="95" Margin="4" TextChanged="FilterTextBox_TextChanged"/>
+            </StackPanel>
+            <!--Show bar-->
+            <StackPanel Orientation="Vertical" >
+                <Label Content="Show:"  FontSize="13" Margin="56,0,32,0"/>
+                <ComboBox x:Name="EmpLevelComboBox" Width="86" Margin="4" ItemsSource="{Binding Source={StaticResource employeeLevelValue}}" SelectedIndex="0" SelectionChanged="EmpLevelComboBox_SelectionChanged"/>
+                <!--<ComboBox x:Name="EmpLevelComboBox" Width="86" Margin="4" ItemsSource="{Binding Source={StaticResource employeeLevelValue}}" SelectedIndex="0" SelectionChanged="EmployeeLeveComboBox_SelectionChanged"/>-->
+            </StackPanel>
+            <ListBox x:Name="researcherListBox" Margin="8" Height="384"  SelectionChanged="researcherListBox_SelectionChanged"
+			ItemsSource="{Binding Source={StaticResource staffList}}"/>
+            <!--<ListBox x:Name="sampleListBox" Grid.Column="1" Margin="5,48,5,0" SelectionChanged="sampleListBox_SelectionChanged"
+			ItemsSource="{Binding Source={StaticResource staffList}}"/>-->
+        </StackPanel>
+        <StackPanel x:Name="DetailsPanel" Orientation="Vertical" Grid.Column="2" Margin="0,105,0,0">
+            <StackPanel.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}"/>
+            </StackPanel.Background>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Type:"></Label>
+                <Label Content="{Binding Path=Type}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Name:"></Label>
+                <Label Content="{Binding Path=Name}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Title:"></Label>
+                <Label Content="{Binding Path=Title_rdr}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Unit:"></Label>
+                <Label Content="{Binding Path=Unit}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Campus:"></Label>
+                <Label Content="{Binding Path=Campus}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Email:"></Label>
+                <Label Content="{Binding Path=Email}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Current job:"></Label>
+                <Label Content="{Binding Path=current_job}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Commenced with institution:"></Label>
+                <Label Content="{Binding Path=UTAS_start}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Commenced current position:"></Label>
+                <Label Content="{Binding Path=Current_start}"></Label>
+            </StackPanel>
+            <!--<StackPanel Orientation="Vertical">
+                <Label Content="Previous position:"></Label>
+                <Label Content="{Binding Path=Position}"></Label>
+            </StackPanel>-->
+
+            <Label Content="Previous position:"/>
+            <ListBox Height="70" Margin="5" ItemsSource="{Binding Path=pre_pos}"/>
+
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Tenure:"></Label>
+                <Label Content="{Binding Path=Tenure}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="3-year average:"></Label>
+                <Label Content="{Binding Path=three_yr_avg}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Performance:"></Label>
+                <Label Content="{Binding Path=Performance}" ContentStringFormat="{}{0:0.0}%"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Supervisions:"></Label>
+                <Label Content="{Binding Path=Supervisions}"></Label>
+                <Button Content="Show Names" FontSize="10" Click="Supervisions_btn"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Degree:"></Label>
+                <Label Content="{Binding Path=Degree}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Supervisor:"></Label>
+                <Label Content="{Binding Path=Supervisor}"></Label>
+            </StackPanel>
+            <!--<StackPanel Orientation="Horizontal">
+                <Label Content="Gender:"></Label>
+                <Label Content="{Binding Path=Gender}"></Label>
+            </StackPanel>-->
+
+
+            <!--<StackPanel Orientation="Horizontal">
+                <Label Content="Skills out of 10:"></Label>
+                <Label Content="{Binding Path=SkillPercent}" ContentStringFormat="{}{0:0.0}%"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Most Recent (default):"></Label>
+                <Label Content="{Binding Path=MostRecentTraining}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                -->
+            <!-- Example with no additional label and and the 'label' added as part of the string format -->
+            <!--
+                <Label Content="{Binding Path=MostRecentTraining}" ContentStringFormat="Most Recent: {0:dd/MM/yyyy}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                -->
+            <!-- Example with no additional Label and and the 'label' added as part of the string format -->
+            <!--
+                <Label Content="{Binding Path=MostRecentTraining}" ContentStringFormat="Most Recent (no Label): {0:dd/MM/yyyy}"></Label>
+            </StackPanel>-->
+            <Label Content="Publication: (showing in the below list box)"/>
+            <ListBox x:Name="publicationListBox" Height="200" ItemsSource="{Binding Path=Skills}" SelectionChanged="publicationListBox_SelectionChanged"/>
+            <!--<ListBox x:Name="sampleListBox" Grid.Column="1" Margin="5,48,5,0" SelectionChanged="sampleListBox_SelectionChanged"
+			ItemsSource="{Binding Source={StaticResource staffList}}"/>-->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Total publications:"/>
+                <Label Content="{Binding SkillCount}"/>
+                <Button Content="Cumulative Count" FontSize="10"  Click="cumulative_Count_btn"></Button>
+            </StackPanel>
+            <!-- Example of outputting long text; you may find this useful
+                for some of the data you need to display in the assignment -->
+            <!--<TextBlock TextWrapping="Wrap">
+                <TextBlock.Text>Here is some long text. Note how it wraps. Here is some long text. Note how it wraps.</TextBlock.Text>
+            </TextBlock>-->
+
+        </StackPanel>
+        <Label Content="Publication detail view" Grid.Column="3" HorizontalAlignment="Left" Margin="58,22,0,0" VerticalAlignment="Top"/>
+        <!--<TextBox x:Name="sampleTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="66,82,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" Width="120" KeyUp="sampleTextBox_KeyUp"/>-->
+        <StackPanel x:Name="PUB_DetailsPanel" Orientation="Vertical" Grid.Column="3" Margin="0,105,0,0">
+            <StackPanel.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+            </StackPanel.Background>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="DOI:"></Label>
+                <Label Content="{Binding Path=DOI}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Title:"></Label>
+                <Label Content="{Binding Path=Title}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Author(s):"></Label>
+                <Label Content="{Binding Path=Authors}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Publication year:"></Label>
+                <Label Content="{Binding Path=Year}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Type:"></Label>
+                <Label Content="{Binding Path=Mode}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Cite as:"></Label>
+                <Label Content="{Binding Path=Cite_as}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Availablity date:"></Label>
+                <Label Content="{Binding Path=Certified}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Age:"></Label>
+                <Label Content="{Binding Path=Age}"></Label>
+            </StackPanel>
+        </StackPanel>
+
+        <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="227,0,0,0" VerticalAlignment="Top" Width="100" Source="icons/icons-close-btn-end.png"/>
+
     </Grid>
 </Window>
