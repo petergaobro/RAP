@@ -5,10 +5,26 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RAP.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="130"
       Title="ResearcherListView">
 
     <Grid>
-        
+        <!--research search view-->
+        <StackPanel Grid.Row="1">
+            <!--Search-->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Search:"  FontSize="13"></Label>
+                <TextBox x:Name="FilterTextBox" Width="95" Margin="4"/>
+            </StackPanel>
+            <!--Show bar-->
+            <StackPanel Orientation="Vertical" >
+                <Label Content="Show:"  FontSize="13" Margin="56,0,32,0"/>
+                <ComboBox x:Name="EmpLevelComboBox" Width="86" Margin="4"/>
+                <!--<ComboBox x:Name="EmpLevelComboBox" Width="86" Margin="4" ItemsSource="{Binding Source={StaticResource employeeLevelValue}}" SelectedIndex="0" SelectionChanged="EmployeeLeveComboBox_SelectionChanged"/>-->
+            </StackPanel>
+            <ListBox x:Name="researcherListBox" Margin="8" Height="384"/>
+            <!--<ListBox x:Name="sampleListBox" Grid.Column="1" Margin="5,48,5,0" SelectionChanged="sampleListBox_SelectionChanged"
+			ItemsSource="{Binding Source={StaticResource staffList}}"/>-->
+        </StackPanel>
     </Grid>
 </Page>

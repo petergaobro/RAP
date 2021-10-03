@@ -5,10 +5,48 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RAP.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="200"
       Title="PublicationDetailsView">
 
     <Grid>
-        
+        <Label Content="Publication detail view" Grid.Column="3" HorizontalAlignment="Left" Margin="58,22,0,0" VerticalAlignment="Top"/>
+        <!--<TextBox x:Name="sampleTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="66,82,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" Width="120" KeyUp="sampleTextBox_KeyUp"/>-->
+        <StackPanel x:Name="PUB_DetailsPanel" Orientation="Vertical" Grid.Column="3" Margin="0,105,0,0">
+            <StackPanel.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+            </StackPanel.Background>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="DOI:"></Label>
+                <Label Content="{Binding Path=DOI}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Title:"></Label>
+                <Label Content="{Binding Path=Title}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Author(s):"></Label>
+                <Label Content="{Binding Path=Authors}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Publication year:"></Label>
+                <Label Content="{Binding Path=Year}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Type:"></Label>
+                <Label Content="{Binding Path=Mode}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Cite as:"></Label>
+                <Label Content="{Binding Path=Cite_as}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Availablity date:"></Label>
+                <Label Content="{Binding Path=Certified}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Age:"></Label>
+                <Label Content="{Binding Path=Age}"></Label>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
