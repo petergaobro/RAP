@@ -180,6 +180,33 @@ namespace RAP
         //    get { return supervisions.Count; }
         //}
 
+
+        //private List<CumulativeCount> cumulativeCounts = null;
+
+        //public List<CumulativeCount> CumulativePublicationCounts
+        //{
+        //    get
+        //    {
+        //        if (cumulativeCounts == null)
+        //        {
+        //            //One approach; not perfect since requires two passes
+        //            var counts = from p in Skills
+        //                         orderby p.Year
+        //                         group p by p.Year into byYear
+        //                         select new CumulativeCount { year = byYear.Key, count = byYear.Count() };
+        //            cumulativeCounts = counts.ToList();
+        //            int lastCount = 0;
+        //            foreach (CumulativeCount count in cumulativeCounts)
+        //            {
+        //                count.count += lastCount;
+        //                lastCount = count.count;
+        //            }
+        //        }
+        //        return cumulativeCounts;
+        //    }
+        //}
+
+
         public override string ToString()
         {
             //For the purposes of this week's demonstration this returns only the name

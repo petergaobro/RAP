@@ -32,7 +32,7 @@ namespace RAP
         private ResearcherController research_controller;
         //private PublicationsController publication_controller = new PublicationsController();
         //private Publication pub;
-        private Researcher res;
+        //private Researcher res;
 
         public MainWindow()
         {
@@ -107,110 +107,90 @@ namespace RAP
             //}
         }
 
-        private void cumulative_Count_btn(object sender, RoutedEventArgs e)
+        //private void cumulative_Count_btn(object sender, RoutedEventArgs e)
+        //{
+        //    if (res == null)
+        //    {
+        //        MessageBox.Show("Please select a researcher...");
+        //    }
+        //    else
+        //    {
+        //        if (res.Skills.Count == 0)
+        //        {
+        //            MessageBox.Show("The researcher doesn't have any publication.");
+        //        }
+        //        else
+        //        {
+        //            CumulativeCount cc2017 = new CumulativeCount(2017, 0);
+        //            CumulativeCount cc2016 = new CumulativeCount(2016, 0);
+        //            CumulativeCount cc2015 = new CumulativeCount(2015, 0);
+        //            CumulativeCount cc2014 = new CumulativeCount(2014, 0);
+        //            CumulativeCount cc2013 = new CumulativeCount(2013, 0);
+        //            CumulativeCount cc2012 = new CumulativeCount(2012, 0);
+        //            CumulativeCount cc2011 = new CumulativeCount(2011, 0);
+        //            CumulativeCount cc2010 = new CumulativeCount(2010, 0);
+
+        //            List<CumulativeCount> cc = new List<CumulativeCount>();
+
+        //            foreach (Publication pub in res.Skills)
+        //            {
+        //                if (pub.Year == 2017)
+        //                {
+        //                    cc2017.count++;
+        //                }
+        //                else if (pub.Year == 2016)
+        //                {
+        //                    cc2016.count++;
+        //                }
+        //                else if (pub.Year == 2015)
+        //                {
+        //                    cc2015.count++;
+        //                }
+        //                else if (pub.Year == 2014)
+        //                {
+        //                    cc2014.count++;
+        //                }
+        //                else if (pub.Year == 2013)
+        //                {
+        //                    cc2013.count++;
+        //                }
+        //                else if (pub.Year == 2012)
+        //                {
+        //                    cc2012.count++;
+        //                }
+        //                else if (pub.Year == 2011)
+        //                {
+        //                    cc2011.count++;
+        //                }
+        //                else if (pub.Year == 2010)
+        //                {
+        //                    cc2010.count++;
+        //                }
+        //            }
+
+        //            cc.Add(cc2017);
+        //            cc.Add(cc2016);
+        //            cc.Add(cc2015);
+        //            cc.Add(cc2014);
+        //            cc.Add(cc2013);
+        //            cc.Add(cc2012);
+        //            cc.Add(cc2011);
+        //            cc.Add(cc2010);
+
+        //            CumulativeCountView cumulative_count_view = new CumulativeCountView();
+        //            cumulative_count_view.cumulative_count_container.ItemsSource = cc;
+        //            var host = new Window();
+        //            host.Width = 270;
+        //            host.Height = 200;
+        //            host.Content = cumulative_count_view;
+        //            host.Show();
+        //        }
+        //    }
+        //}
+
+        private void lnkSupervises_Click(object sender, RoutedEventArgs e)
         {
-            if (res == null)
-            {
-                MessageBox.Show("Please select a researcher...");
-            }
-            else
-            {
-                if (res.Skills.Count == 0)
-                {
-                    MessageBox.Show("The researcher doesn't have any publication.");
-                }
-                else
-                {
-                    CumulativeCount cc2017 = new CumulativeCount(2017, 0);
-                    CumulativeCount cc2016 = new CumulativeCount(2016, 0);
-                    CumulativeCount cc2015 = new CumulativeCount(2015, 0);
-                    CumulativeCount cc2014 = new CumulativeCount(2014, 0);
-                    CumulativeCount cc2013 = new CumulativeCount(2013, 0);
-                    CumulativeCount cc2012 = new CumulativeCount(2012, 0);
-                    CumulativeCount cc2011 = new CumulativeCount(2011, 0);
-                    CumulativeCount cc2010 = new CumulativeCount(2010, 0);
-
-                    List<CumulativeCount> cc = new List<CumulativeCount>();
-
-                    foreach (Publication pub in res.Skills)
-                    {
-                        if (pub.Year == 2017)
-                        {
-                            cc2017.count++;
-                        }
-                        else if (pub.Year == 2016)
-                        {
-                            cc2016.count++;
-                        }
-                        else if (pub.Year == 2015)
-                        {
-                            cc2015.count++;
-                        }
-                        else if (pub.Year == 2014)
-                        {
-                            cc2014.count++;
-                        }
-                        else if (pub.Year == 2013)
-                        {
-                            cc2013.count++;
-                        }
-                        else if (pub.Year == 2012)
-                        {
-                            cc2012.count++;
-                        }
-                        else if (pub.Year == 2011)
-                        {
-                            cc2011.count++;
-                        }
-                        else if (pub.Year == 2010)
-                        {
-                            cc2010.count++;
-                        }
-                    }
-
-                    cc.Add(cc2017);
-                    cc.Add(cc2016);
-                    cc.Add(cc2015);
-                    cc.Add(cc2014);
-                    cc.Add(cc2013);
-                    cc.Add(cc2012);
-                    cc.Add(cc2011);
-                    cc.Add(cc2010);
-
-                    CumulativeCountView cumulative_count_view = new CumulativeCountView();
-                    cumulative_count_view.cumulative_count_container.ItemsSource = cc;
-                    var host = new Window();
-                    //host.Width = 270;
-                    //host.Height = 200;
-                    host.Content = cumulative_count_view;
-                    host.Show();
-                }
-            }
-        }
-
-        private void Supervisions_btn(object sender, RoutedEventArgs e)
-        {
-            if (res == null)
-            {
-                MessageBox.Show("Please select a researcher...");
-            }
-            else
-            {
-                if (res.supervisions_cal.Count == 0)
-                {
-                    MessageBox.Show("The researcher doesn't have any supervisions.");
-                }
-                else
-                {
-                    SupervisionListView supervision_list_view = new SupervisionListView();
-                    supervision_list_view.supervision_container.ItemsSource = res.supervisions_cal;
-                    var host = new Window();
-                    host.Width = 270;
-                    host.Height = 400;
-                    host.Content = supervision_list_view;
-                    host.Show();
-                }
-            }
+            lstSupervisions.Visibility = lstSupervisions.IsVisible ? System.Windows.Visibility.Collapsed : System.Windows.Visibility.Visible;
         }
 
 
