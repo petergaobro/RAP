@@ -529,7 +529,7 @@
                 </TabItem>
                 <TabItem Header="Cumulative Count">
                     <!-- What I should have instructed the students to use -->
-                    <DataGrid x:Name="tblCumulativeCount" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding SkillCount}">
+                    <DataGrid x:Name="tblCumulativeCount" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Path=CumulativePublicationCounts}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Year" Binding="{Binding year}"/>
                             <DataGridTextColumn Header="Count" Binding="{Binding count}" Width="*"/>
