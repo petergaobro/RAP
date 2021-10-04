@@ -505,8 +505,12 @@
             <StackPanel Orientation="Horizontal">
                 <Label Content="Supervisions:"></Label>
                 <Label Content="{Binding Path=Supervisions}"></Label>
-                <Button Content="Show Names" FontSize="10" Click="Supervisions_btn"></Button>
+                <Button Content="Show Names" FontSize="10"></Button>
+                <!--<Button Content="Show Names" FontSize="10" Click="Supervisions_btn"></Button>-->
             </StackPanel>
+
+            <ListBox Height="70" Margin="5" ItemsSource="{Binding Path=supervisions_cal}"/>
+
             <StackPanel Orientation="Horizontal">
                 <Label Content="Degree:"></Label>
                 <Label Content="{Binding Path=Degree}"></Label>
