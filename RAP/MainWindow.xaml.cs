@@ -17,6 +17,7 @@ using System.Windows.Controls.Primitives;
 using RAP.Model;
 using RAP.View;
 
+
 namespace RAP
 {
     /// <summary>
@@ -30,7 +31,7 @@ namespace RAP
         private const string STAFF_LIST_KEY = "staffList";
         private ResearcherController research_controller;
         //private PublicationsController publication_controller = new PublicationsController();
-        private Publication pub;
+        //private Publication pub;
         private Researcher res;
 
         public MainWindow()
@@ -204,8 +205,8 @@ namespace RAP
                     SupervisionListView supervision_list_view = new SupervisionListView();
                     supervision_list_view.supervision_container.ItemsSource = res.supervisions_cal;
                     var host = new Window();
-                    //host.Width = 270;
-                    //host.Height = 400;
+                    host.Width = 270;
+                    host.Height = 400;
                     host.Content = supervision_list_view;
                     host.Show();
                 }

@@ -18,7 +18,7 @@ namespace RAP.View
     /// <summary>
     /// Interaction logic for SupervisionListView.xaml
     /// </summary>
-    public partial class SupervisionListView : Page
+    public partial class SupervisionListView : UserControl
     {
         public SupervisionListView()
         {

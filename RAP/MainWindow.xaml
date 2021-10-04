@@ -129,8 +129,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="54*"/>
             <ColumnDefinition Width="130*"/>
-            <ColumnDefinition Width="270*"/>
-            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="220*"/>
         </Grid.ColumnDefinitions>
         <Grid x:Name="nav_side"
                       HorizontalAlignment="Left"

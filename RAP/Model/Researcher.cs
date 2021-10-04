@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using RAP.Model;
+using RAP.View;
 namespace RAP
 {
     public enum emp_level { Researcher, Student, A, B, C, D, E }
-    public class Researcher
+    class Researcher
     {
         public int ID { get; set; }
         public string Type { get; set; }

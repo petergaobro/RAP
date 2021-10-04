@@ -18,7 +18,7 @@ namespace RAP.View
     /// <summary>
     /// Interaction logic for CumulativeCountView.xaml
     /// </summary>
-    public partial class CumulativeCountView : Page
+    public partial class CumulativeCountView : UserControl
     {
         public CumulativeCountView()
         {
