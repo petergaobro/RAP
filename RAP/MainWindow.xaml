@@ -10,23 +10,6 @@
                     ImageSource="icons/icons_mouse_over.png">
         </ImageBrush>
 
-        <!--text font style-->
-        <!--<Style x:Key="font_style" TargetType="TextBlock">
-            <Setter Property="FontFamily"
-                    Value="font_style/Roboto-Regular.ttf #Roboto">
-            </Setter>
-            <Setter Property="VerticalAlignment"
-                    Value="Center">
-            </Setter>
-            <Setter Property="HorizontalAlignment"
-                    Value="Left">
-            </Setter>
-            <Setter Property="FontSize"
-                    Value="20">
-            </Setter>
-        </Style>-->
-
-
         <!--tool tip style-->
         <Style TargetType="ToolTip"
                x:Key="tool_tip_style">
@@ -63,9 +46,6 @@
             <Setter Property="HorizontalOffset"
                     Value="15">
             </Setter>
-            <!--<Setter Property="VerticalOffset"
-                    Value="0">
-            </Setter>-->
             <Setter Property="HasDropShadow"
                     Value="True">
             </Setter>
@@ -111,18 +91,10 @@
                                         Value="{StaticResource app_mouse_over}">
                                 </Setter>
                             </Trigger>
-
-
-
-
                         </ControlTemplate.Triggers>
-
                     </ControlTemplate>
-
                 </Setter.Value>
-
             </Setter>
-
         </Style>
     </Window.Resources>
     <Grid>
@@ -141,34 +113,6 @@
 
                 <!--toggle menu-->
                 <Grid Height="100">
-
-                    <!--menu title text-->
-                    <!--<TextBlock Grid.Row="1"
-                                       Grid.Column="0"
-                                       Margin="73,-20,0,0"
-                                       Text="M E N U"
-                                       Foreground="White"
-                                       FontSize="22"
-                                       Background="Transparent"
-                                       HorizontalAlignment="Left"
-                                       VerticalAlignment="Center"
-                                   
-                                       >
-                            
-                            
-                                -->
-                    <!--shadow effect-->
-                    <!--
-                        <TextBlock.Effect>
-                            <DropShadowEffect BlurRadius="10"
-                                                      ShadowDepth="1"
-                                                      Direction="-90"
-                                                      Color="White">
-
-                            </DropShadowEffect>
-                        </TextBlock.Effect>
-                    </TextBlock>-->
-
                     <!--toggle button-->
                     <ToggleButton x:Name="toggle_btn"
                                           Grid.Column="0"
@@ -413,15 +357,7 @@
                 </ListView>
             </StackPanel>
         </Grid>
-
         <TextBox Grid.Column="1" Text="{Binding EmployeesFilter, UpdateSourceTrigger=PropertyChanged}" />
-
-
-
-        <!--<Button x:Name="sampleButton" Content="Button" Grid.Column="3" HorizontalAlignment="Left" Margin="167,19,0,0" VerticalAlignment="Top" Width="75" Click="sampleButton_Click" Height="22"/>
-        <local:ExampleUserControl Grid.Column="3" HorizontalAlignment="Left" Margin="52,170,0,0" VerticalAlignment="Top" Width="190" Height="49"/>
-        <Button x:Name="btnDeleteOne" Content="Delete One" Grid.Column="3" HorizontalAlignment="Left" Margin="119,71,0,0" VerticalAlignment="Top" Width="75" Click="btnDeleteOne_Click" Height="20" />-->
-        <!--<TextBox Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="5,19,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="143"/>-->
 
         <!--research search view-->
         <StackPanel Grid.Column="1" Grid.Row="1">
@@ -434,12 +370,9 @@
             <StackPanel Orientation="Vertical" >
                 <Label Content="Show:"  FontSize="13" Margin="56,0,32,0"/>
                 <ComboBox x:Name="EmpLevelComboBox" Width="86" Margin="4" ItemsSource="{Binding Source={StaticResource employeeLevelValue}}" SelectedIndex="0" SelectionChanged="EmpLevelComboBox_SelectionChanged"/>
-                <!--<ComboBox x:Name="EmpLevelComboBox" Width="86" Margin="4" ItemsSource="{Binding Source={StaticResource employeeLevelValue}}" SelectedIndex="0" SelectionChanged="EmployeeLeveComboBox_SelectionChanged"/>-->
             </StackPanel>
             <ListBox x:Name="researcherListBox" Margin="8" Height="384"  SelectionChanged="researcherListBox_SelectionChanged"
 			ItemsSource="{Binding Source={StaticResource staffList}}"/>
-            <!--<ListBox x:Name="sampleListBox" Grid.Column="1" Margin="5,48,5,0" SelectionChanged="sampleListBox_SelectionChanged"
-			ItemsSource="{Binding Source={StaticResource staffList}}"/>-->
         </StackPanel>
         <StackPanel x:Name="DetailsPanel" Orientation="Vertical" Grid.Column="2" Margin="0,105,0,0">
             <StackPanel.Background>
@@ -481,11 +414,6 @@
                 <Label Content="Commenced current position:"></Label>
                 <Label Content="{Binding Path=Current_start}"></Label>
             </StackPanel>
-            <!--<StackPanel Orientation="Vertical">
-                <Label Content="Previous position:"></Label>
-                <Label Content="{Binding Path=Position}"></Label>
-            </StackPanel>-->
-
             <Label Content="Previous position:"/>
             <ListBox Height="70" Margin="5" ItemsSource="{Binding Path=pre_pos}"/>
 
@@ -536,28 +464,11 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <!-- What they will probably have used based on the tutorial content -->
-
                 </TabItem>
             </TabControl>
-            <!--<Label Content="Publication: (showing in the below list box)"/>
-            <ListBox x:Name="publicationListBox" Height="200" ItemsSource="{Binding Path=Skills}" SelectionChanged="publicationListBox_SelectionChanged"/>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Total publications:"/>
-                <Label Content="{Binding SkillCount}"/>
-                <Button Content="Cumulative Count" FontSize="10"  Click="cumulative_Count_btn"></Button>
-            </StackPanel>-->
-
         </StackPanel>
-        
-        
-        
-        
-        
-        
-        <!--df-->
-   
+
         <Label Content="Publication detail view" Grid.Column="3" HorizontalAlignment="Left" Margin="58,22,0,0" VerticalAlignment="Top"/>
-        <!--<TextBox x:Name="sampleTextBox" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="66,82,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" Width="120" KeyUp="sampleTextBox_KeyUp"/>-->
         <StackPanel x:Name="PUB_DetailsPanel" Orientation="Vertical" Grid.Column="3" Margin="0,105,0,0">
             <StackPanel.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>

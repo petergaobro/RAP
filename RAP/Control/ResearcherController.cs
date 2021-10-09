@@ -51,16 +51,10 @@ namespace RAP
         public void FilterByName(String enteredName)
         {
             var selected = staff.Where(x => x.Name.ToLower().Contains(enteredName.ToLower())).ToList();
-            //var selected = from Researcher e in staff
-            //               where e.Name.Contains(enteredName) || e.ToString().Contains(enteredName)
-            //               select e;
-
             viewableStaff.Clear();
 
             selected.ToList().ForEach(viewableStaff.Add);
         }
-
-
         // set the filter for employmentlevel
         public void FilterByLevel(emp_level selectedLevel)
         {
@@ -88,7 +82,6 @@ namespace RAP
 
                 selected.ToList().ForEach(viewableStaff.Add);
             }
-
         }
     }
 }

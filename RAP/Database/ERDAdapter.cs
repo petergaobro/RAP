@@ -88,7 +88,6 @@ namespace RAP
                     res.UTAS_start = rdr.GetDateTime(11);
                     res.Current_start = rdr.GetDateTime(12);
                     staff.Add(res);
-                    //staff.Add(new Researcher { ID = rdr.GetInt32(0), Name = rdr.GetString(1) + " " + rdr.GetString(2), Title_rdr = rdr.GetString(3), Unit = rdr.GetString(4), Campus = rdr.GetString(5), Email = rdr.GetString(6), UTAS_start = rdr.GetDateTime(7), Current_start = rdr.GetDateTime(8)});
                 }
             }
             catch (MySqlException e)
@@ -110,48 +109,6 @@ namespace RAP
             return staff;
         }
 
-
-        //public static List<Publication> LoadAll_pub()
-        //{
-        //    List<Publication> pub_list = new List<Publication>();
-
-        //    MySqlConnection conn = GetConnection();
-        //    MySqlDataReader pub = null;
-
-        //    try
-        //    {
-        //        conn.Open();
-
-        //        MySqlCommand cmd = new MySqlCommand("doi, authors, cite_as from publication", conn);
-        //        pub = cmd.ExecuteReader();
-
-        //        while (pub.Read())
-        //        {
-        //            //Note that in your assignment you will need to inspect the *type* of the
-        //            //employee/researcher before deciding which kind of concrete class to create.
-        //            pub_list.Add(new Publication { DOI = pub.GetString(0), Authors = pub.GetString(1), Cite_as = pub.GetString(2) });
-        //        }
-        //    }
-        //    catch (MySqlException e)
-        //    {
-        //        ReportError("loading publication", e);
-        //    }
-        //    finally
-        //    {
-        //        if (pub != null)
-        //        {
-        //            pub.Close();
-        //        }
-        //        if (conn != null)
-        //        {
-        //            conn.Close();
-        //        }
-        //    }
-
-        //    return pub_list;
-        //}
-
-        //For step 2.3 in Week 8 tutorial
         //Researcher list view - publication list
         public static List<Publication> LoadPublication(int id)
         {
@@ -163,11 +120,6 @@ namespace RAP
             try
             {
                 conn.Open();
-
-                //MySqlCommand cmd = new MySqlCommand("select title, year, type, available, doi " +
-                //                                    "from publication as pub, researcher_publication as respub " +
-                //                                    "where pub.doi=respub.doi and researcher_id=?id", conn);
-
                 MySqlCommand cmd = new MySqlCommand("select * from researcher_publication rp inner join publication p on rp.doi = p.doi where researcher_id = ?id", conn);
 
                 cmd.Parameters.AddWithValue("id", id);
