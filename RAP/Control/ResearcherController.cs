@@ -32,7 +32,7 @@ namespace RAP
             //Part of step 2.3.2 from Week 8 tutorial
             foreach (Researcher e in staff)
             {
-                e.Skills = ERDAdapter.LoadPublication(e.ID);
+                e.Publications = ERDAdapter.LoadPublication(e.ID);
                 e.pre_pos = ERDAdapter.LoadPostions(e.ID);
                 e.three_yr_avg = Math.Round(ERDAdapter.fetchThreeYearCount(e.ID) / 3.0, 1);
                 e.Performance = Researcher.Performance_cal(e.level, e.three_yr_avg);

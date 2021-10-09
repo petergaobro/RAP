@@ -525,7 +525,7 @@
             </StackPanel>
             <TabControl>
                 <TabItem Header="Publications">
-                    <ListBox x:Name="publicationListBox" ItemsSource="{Binding Path=Skills}" SelectionChanged="publicationListBox_SelectionChanged" Height="167"/>
+                    <ListBox x:Name="publicationListBox" ItemsSource="{Binding Path=Publications}" SelectionChanged="publicationListBox_SelectionChanged" Height="167"/>
                 </TabItem>
                 <TabItem Header="Cumulative Count">
                     <!-- What I should have instructed the students to use -->

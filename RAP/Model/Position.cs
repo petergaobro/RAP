@@ -11,10 +11,7 @@ namespace RAP
     {
         public emp_level Level { get; set; }
         public DateTime Start { get; set; }
-
-
         public DateTime? End { get; set; }
-
         public override string ToString()
         {
             if (End.HasValue)
@@ -25,7 +22,6 @@ namespace RAP
             {
                 return null;
             }
-
         }
     }
 }

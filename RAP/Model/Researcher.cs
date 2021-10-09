@@ -27,7 +27,7 @@ namespace RAP
         public List<Researcher> supervisions_cal { get; set; }
         public string supervisorName { get; set; }
         public List<Position> pre_pos { get; set; }
-        public List<Publication> Skills { get; set; }
+        public List<Publication> Publications { get; set; }
         public double three_yr_avg { get; set; }
         public double Performance { get; set; }
         public string Supervisor { get; set; }
@@ -45,9 +45,7 @@ namespace RAP
 
                     return pres_date.First();
                 }
-
                 return DateTime.Today;
-
             }
         }
 
@@ -79,17 +77,6 @@ namespace RAP
                     return "Student";
                 default: return "Level has no associated title";
             }
-            //if (level == emp_level.A)
-            //{ return "Postdoc"; }
-            //else if (level == emp_level.B)
-            //{ return "Lecturer"; }
-            //else if (level == emp_level.C)
-            //{ return "Senior Lecturer"; }
-            //else if (level == emp_level.D)
-            //{ return "Associate Professor"; }
-            //else if (level == emp_level.E)
-            //{ return "Professor"; }
-            //return "Student";
         }
 
         public double Tenure
@@ -116,18 +103,6 @@ namespace RAP
                     return three_yr_avg / 4.0 * 100;
                 default: return 0;
             }
-
-            //if (level == emp_level.A)
-            //{ return three_yr_avg / 0.5 * 100; }
-            //else if (level == emp_level.B)
-            //{ return three_yr_avg / 1.0 * 100; }
-            //else if (level == emp_level.C)
-            //{ return three_yr_avg / 2.0 * 100; }
-            //else if (level == emp_level.D)
-            //{ return three_yr_avg / 3.2 * 100; }
-            //else if (level == emp_level.E)
-            //{ return three_yr_avg / 4.0 * 100; }
-            //return 0;
         }
         //supervision counts
         public int Supervisions
@@ -137,7 +112,7 @@ namespace RAP
 
         public int SkillCount
         {
-            get { return Skills == null ? 0 : Skills.Count(); }
+            get { return Publications == null ? 0 : Publications.Count(); }
         }
 
         //The SkillCount out of 10, expressed as a percentage
@@ -152,34 +127,12 @@ namespace RAP
         {
             get
             {
-                var skillDates = from Publication s in Skills
+                var skillDates = from Publication s in Publications
                                  orderby s.Certified descending
                                  select s.Certified;
                 return skillDates.First();
             }
         }
-
-        //This is a more robust implementation, but requires the the return type be made 'nullable'
-        //        public DateTime? MostRecentTraining
-        //        {
-        //            get
-        //            {
-        //                if (SkillCount > 0)
-        //                {
-        //                    var skillDates = from TrainingSession s in Skills
-        //                                     orderby s.Certified descending
-        //                                     select s.Certified;
-        //                    return skillDates.First();
-        //                }
-        //                return null;
-        //            }
-        //        }
-
-        //public int supervisionCount
-        //{
-        //    get { return supervisions.Count; }
-        //}
-
 
         private List<CumulativeCount> cumulativeCounts = null;
 
@@ -190,7 +143,7 @@ namespace RAP
                 if (cumulativeCounts == null)
                 {
                     //One approach; not perfect since requires two passes
-                    var counts = from p in Skills
+                    var counts = from p in Publications
                                  orderby p.Year
                                  group p by p.Year into byYear
                                  select new CumulativeCount { year = byYear.Key, count = byYear.Count() };
