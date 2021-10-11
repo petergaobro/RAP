@@ -357,6 +357,8 @@
                 </ListView>
             </StackPanel>
         </Grid>
+
+
         <TextBox Grid.Column="1" Text="{Binding EmployeesFilter, UpdateSourceTrigger=PropertyChanged}" />
 
         <!--research search view-->
@@ -374,12 +376,13 @@
             <ListBox x:Name="researcherListBox" Margin="8" Height="384"  SelectionChanged="researcherListBox_SelectionChanged"
 			ItemsSource="{Binding Source={StaticResource staffList}}"/>
         </StackPanel>
-
-        <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="203,0,0,0" VerticalAlignment="Top" Width="100" Source="{Binding Path=Photo}"/>
-        <StackPanel x:Name="DetailsPanel" Orientation="Vertical" Grid.Column="2" Margin="0,105,0,0">
+        <StackPanel x:Name="DetailsPanel" Orientation="Vertical" Grid.Column="2" Margin="0,106,0,0">
             <StackPanel.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}"/>
             </StackPanel.Background>
+            <StackPanel Orientation="Horizontal">
+                <Image HorizontalAlignment="Left" Height="129" Margin="5" VerticalAlignment="Top" Width="138" Source="{Binding Photo}"/>
+            </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Type:"></Label>
                 <Label Content="{Binding Path=Type}"></Label>
