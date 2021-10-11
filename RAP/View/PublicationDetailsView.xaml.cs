@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RAP.View
 {
     /// <summary>
-    /// Interaction logic for CumulativeCountView.xaml
+    /// Interaction logic for PublicationDetailsView.xaml
     /// </summary>
-    public partial class CumulativeCountView : UserControl
+    public partial class PublicationDetailsView : UserControl
     {
-        public CumulativeCountView()
+        public PublicationDetailsView()
         {
             InitializeComponent();
         }

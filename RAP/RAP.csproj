@@ -62,11 +62,8 @@
     <Compile Include="Model\Publication.cs" />
     <Compile Include="Model\Researcher.cs" />
     <Compile Include="Control\ResearcherController.cs" />
-    <Compile Include="View\CumulativeCountView.xaml.cs">
-      <DependentUpon>CumulativeCountView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\SupervisionListView.xaml.cs">
-      <DependentUpon>SupervisionListView.xaml</DependentUpon>
+    <Compile Include="View\PublicationDetailsView.xaml.cs">
+      <DependentUpon>PublicationDetailsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -81,11 +78,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\CumulativeCountView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\SupervisionListView.xaml">
+    <Page Include="View\PublicationDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
