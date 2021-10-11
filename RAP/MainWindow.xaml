@@ -375,7 +375,7 @@
 			ItemsSource="{Binding Source={StaticResource staffList}}"/>
         </StackPanel>
 
-        <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="203,0,0,0" VerticalAlignment="Top" Width="100" Source="icons/icons-close-btn-end.png"/>
+        <Image Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="203,0,0,0" VerticalAlignment="Top" Width="100" Source="{Binding Path=Photo}"/>
 
         <StackPanel x:Name="DetailsPanel" Orientation="Vertical" Grid.Column="2" Margin="0,105,0,0">
             <StackPanel.Background>
