@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RAP.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="220">
+             d:DesignHeight="1000" d:DesignWidth="220">
     <Grid>
         <StackPanel x:Name="PUB_DetailsPanel" Orientation="Vertical" Grid.Column="3" Margin="0,105,0,0">
             <StackPanel.Background>
