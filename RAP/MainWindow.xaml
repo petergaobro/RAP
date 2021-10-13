@@ -376,6 +376,7 @@
             <ListBox x:Name="researcherListBox" Margin="8" Height="384"  SelectionChanged="researcherListBox_SelectionChanged"
 			ItemsSource="{Binding Source={StaticResource staffList}}"/>
         </StackPanel>
+        
         <StackPanel x:Name="DetailsPanel" Orientation="Vertical" Grid.Column="2" Margin="0,106,0,0">
             <StackPanel.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}"/>
