@@ -16,6 +16,7 @@ namespace RAP
         {
             if (End.HasValue)
             {
+                //message display with the specific format
                 return Start.ToShortDateString() + " - " + End.Value.ToShortDateString() + "   " + Researcher.ToTitle(Level);
             }
             else

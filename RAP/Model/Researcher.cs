@@ -11,6 +11,7 @@ namespace RAP
     public enum emp_level { Researcher, Student, A, B, C, D, E }
     class Researcher
     {
+        //assign the var 
         public int ID { get; set; }
         public string Type { get; set; }
         public string Name { get; set; }
@@ -32,6 +33,7 @@ namespace RAP
         public double Performance { get; set; }
         public string Supervisor { get; set; }
 
+        //calcuate the period start with previous job
         public DateTime previous_job
         {
             get
@@ -49,7 +51,7 @@ namespace RAP
             }
         }
 
-
+        //calcuate the period start with current job
         public string current_job
         {
             get
@@ -59,6 +61,7 @@ namespace RAP
 
         }
 
+        //set the title - choose
         public static string ToTitle(emp_level level)
         {
             switch (level)
@@ -79,6 +82,7 @@ namespace RAP
             }
         }
 
+        //calcuate the tenure
         public double Tenure
         {
             get
@@ -87,6 +91,7 @@ namespace RAP
             }
         }
 
+        //calculate the performance with format
         public static double Performance_cal(emp_level level, double three_yr_avg)
         {
             switch (level)
@@ -136,6 +141,7 @@ namespace RAP
 
         private List<CumulativeCount> cumulativeCounts = null;
 
+        //calculate the cumulative count with publication list
         public List<CumulativeCount> CumulativePublicationCounts
         {
             get
@@ -163,7 +169,6 @@ namespace RAP
         public override string ToString()
         {
             //For the purposes of this week's demonstration this returns only the name
-            //return ID;
             return Name;
         }
     }
